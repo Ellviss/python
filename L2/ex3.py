@@ -27,10 +27,20 @@ school_classes= [
                 ]
 
 #Посчитать и вывести средний балл по всей школе.
-def average_school (list1):
-    print ('bla1')
+def average_school (dict_list):
+    for item in dict_list:
+        class_res=0
+        len_avg=0
+        class_res=sum(item.get('scores'))+class_res
+        len_avg=len(item.get('scores'))+len_avg
+     
+    res = class_res/len_avg
+    print ('Classes average: '+str(res) )
 average_school(school_classes)
 #Посчитать и вывести средний балл по каждому классу.
-def average_class (list1):
-    print ('bla2')
-average_class (school_classes)
+def class_avr(dict_list):
+    for item in dict_list:
+        school_class= item.get('school_class')
+        res =  sum(item.get('scores'))/len(item.get('scores'))
+        print ('Class: '+school_class+' average: '+str(res) )
+class_avr(school_classes)
