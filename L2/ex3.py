@@ -15,7 +15,14 @@ def vertical_convert(str1):
     words = str1.split()
     word_long=max(map(len,words))
     print("\n".join(" ".join(c[i] for c in [i+" "*(word_long-len(i)) for i in words]) for i in range(word_long)))
+
+def vert_str(str1):
+    letter=str1.split()
+    for letter in str1:
+        print(letter)
+
 vertical_convert(string)
+vert_str(string)
 
 
 #Оценки
@@ -31,8 +38,8 @@ def average_school (dict_list):
     for item in dict_list:
         class_res=0
         len_avg=0
-        class_res=sum(item.get('scores'))+class_res
-        len_avg=len(item.get('scores'))+len_avg
+        class_res +=sum(item.get('scores'))
+        len_avg +=len(item.get('scores'))
      
     res = class_res/len_avg
     print ('Classes average: '+str(res) )

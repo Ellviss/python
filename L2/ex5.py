@@ -18,16 +18,17 @@ def discounted(price, discount, max_discount=20):
     #price = abs(float(price))
     #discount = abs(float(discount))
     max_discount = abs(float(max_discount))
-    if max_discount > 99:
-        raise ValueError('Слишком большая максимальная скидка')
-    if not isinstance(price, float):
-        raise TypeError(f"Argument save must be of type float, not {type(price)}")
-    if not isinstance(discount, float):
-        raise TypeError(f"Argument save must be of type float, not {type(discount)}")
-    if discount >= max_discount:
-        return price
-    else:
-        return price - (price * discount / 100)
-                  
+    try:
+        if max_discount > 99:
+            return price
+        if discount >= max_discount:
+            return price
+        else:
+            return price - (price * discount / 100)
+    except TypeError:
+        print (f"Argument must be of type float")
+    except ValueError:
+        print (f'Слишком большая максимальная скидка')    
+                      
 res=discounted(20.0,8,10.0)
 print (res)
